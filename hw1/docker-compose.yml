@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  my-service:
+    build: .
+    container_name: my-service
+    ports:
+      - "5432:5432"

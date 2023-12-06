@@ -1,0 +1,18 @@
+$ git clone https://github.com/ArinaPavlova/datasets.git
+$ cd datasets
+$ pip install dvc boto3
+$ pip install dvc_s3
+$ dvc init
+$ dvc remote add -d myremote s3://datasets
+$ git add .dvc 
+$ git commit -m "Initialize DVC"
+$ git push origin main
+$ dvc add train.csv
+$ git add train.csv .gitignore
+$ git commit -m "Added train dataset"
+$ git push origin main
+$ dvc remote modify myremote endpointurl http://127.0.0.1:9000
+$ dvc remote modify --local myremote access_key_id 2aMFSfJf0Ar6bTjlLj48
+$ dvc remote modify --local myremote secret_access_key bI3l3Thl2PLEA9eRcZeLjnHlePq2iwVw47l1p3iP
+$ dvc push
+1 file pushed
