@@ -1,0 +1,4 @@
+$ cd hw1
+$ docker build -t arinapavlova/my-service .
+$ docker push arinapavlova/my-service
+$ docker-compose up
