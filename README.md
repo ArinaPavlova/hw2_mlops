@@ -1,14 +1,12 @@
 # hw2_mlops
 1. Добавлено хранилище S3 Minio (см. папку db, в ней docker-compose для поднятия контейнера и db.py для проверки подключения к Minio)
-   - **cd db**
-   - **docker-compose up**
 3. В папке hw1:
      - папка app с кодом main.py (объединенные models.py и api.py)
      - requirements.txt - зависимости (до dvc)
      - Dockerfile
      - docker-compose для поднятия контейнера
      - **cd hw1**
-     - **docker-compose up --build**
+     - **docker-compose up**
 4. Докер-образ запушен на DockerHub (https://hub.docker.com/r/arinapavlova/my-service)
       - файл dockerhub.txt с последовательностью команд
 5. Добавлено версионирование с помощью DVC (см. папку datasets + https://github.com/ArinaPavlova/datasets)
