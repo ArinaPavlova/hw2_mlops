@@ -9,7 +9,9 @@
      - docker-compose для поднятия контейнера
      - **cd hw1**
      - **docker-compose up --build**
-4. Добавлено версионирование с помощью DVC (см. папку datasets + https://github.com/ArinaPavlova/datasets)
+4. Докер-образ запушен на DockerHub (https://hub.docker.com/r/arinapavlova/my-service)
+      - файл dockerhub.txt с последовательностью команд
+5. Добавлено версионирование с помощью DVC (см. папку datasets + https://github.com/ArinaPavlova/datasets)
    - DVC fixed.txt - файл, в котором описана последовательность выполненных команд для DVC.
    - config, config.local - конфиги для DVC
    - train.csv - датасет
