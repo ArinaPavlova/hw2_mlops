@@ -1,0 +1,32 @@
+stages:
+  - build
+  - test
+
+variables:
+  CI_PROJECT_NAME: hw2_mlops
+  CI_PROJECT_URL: https://gitlab.com/arinapavlova/hw2_mlops
+  CI_REGISTRY: registry.gitlab.com
+  CI_REGISTRY_IMAGE: registry.gitlab.com/arinapavlova/hw2_mlops
+  DEV_IMAGE: registry.gitlab.com/arinapavlova/hw2_mlops
+  SECRET_KEY: $SECRET_KEY
+
+before_script:
+  - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" "$CI_REGISTRY" --password-stdin
+
+build:
+  stage: build
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE -f Dockerfile .
+    - docker push $CI_REGISTRY_IMAGE
+
+
+test:
+  stage: test
+  script:
+     - docker pull $CI_REGISTRY_IMAGE:latest
+     - docker run -d --publish 8000 --name test $CI_REGISTRY_IMAGE:latest sleep infinity
+     - docker exec test python -m pytest /tests
+  after_script:
+     - docker stop test
+     - docker rm  test
+
